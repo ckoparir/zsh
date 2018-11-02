@@ -61,8 +61,21 @@ ZSH_THEME="oxide"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
 plugins=(
-  git
+	git 
+	colored-man 
+	colorize 
+	github 
+	jira 
+	vagrant 
+	virtualenv 
+	pip 
+	python 
+	brew 
+	osx 
+	zsh-syntax-highlighting 
+	zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -107,3 +120,7 @@ export PKG_CONFIG_PATH="/usr/lib64/pkgconfig"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias em="emacs -nw"
+alias mefi="sudo diskutil mount /dev/disk0s1"
+
+export NVM_DIR="/Users/caglar/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
