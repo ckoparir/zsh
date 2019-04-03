@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:/usr/include/**:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.zsh
-export EDITOR="vi"
+export EDITOR="vim"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -54,7 +54,7 @@ ZSH_THEME="oxide"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 # Would you like to use another custom folder than $ZSH/custom?
-# 
+#
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
@@ -63,18 +63,18 @@ ZSH_THEME="oxide"
 # Add wisely, as too many plugins slow down shell startup.
 
 plugins=(
-	git 
-	colored-man 
-	colorize 
-	github 
-	jira 
-	vagrant 
-	virtualenv 
-	pip 
-	python 
-	brew 
-	osx 
-	zsh-syntax-highlighting 
+	git
+	colored-man
+	colorize
+	github
+	jira
+	vagrant
+	virtualenv
+	pip
+	python
+	brew
+	osx
+	zsh-syntax-highlighting
 	zsh-autosuggestions
 )
 
@@ -121,6 +121,7 @@ export PKG_CONFIG_PATH="/usr/lib64/pkgconfig"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias em="emacs -nw"
 alias mefi="sudo diskutil mount /dev/disk0s1"
+alias vi="vim"
 
 export NVM_DIR="/Users/caglar/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
