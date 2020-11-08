@@ -110,7 +110,9 @@ export VK_LAYER_PATH="$VULKAN_SDK/etc/explicit_layer.d"
 export VK_INSTANCE_LAYERS="VK_LAYER_LUNARG_standard_validation"
 
 export PKG_CONFIG_PATH="/usr/lib64/pkgconfig"
-
+export PATH="/home/$USER/.emacs.d/bin:$PATH"
+export PATH="/home/$USER/.local/bin:$PATH"
+export XDG_DATA_HOME="/home/$USER/.local/share/vim-lsp-settings/servers"
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -126,3 +128,5 @@ alias vi="vim"
 export NVM_DIR="/Users/caglar/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
