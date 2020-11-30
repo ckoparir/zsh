@@ -108,11 +108,13 @@ export PATH="$VULKAN_SDK/bin:$PATH"
 export LD_LIBRARY_PATH="$VULKAN_SDK/lib:${LD_LIBRARY_PATH:-}"
 export VK_LAYER_PATH="$VULKAN_SDK/etc/explicit_layer.d"
 export VK_INSTANCE_LAYERS="VK_LAYER_LUNARG_standard_validation"
+export PROJ_PATH="/home/$USER/Documents/PROJECTS"
 
 export PKG_CONFIG_PATH="/usr/lib64/pkgconfig"
 export PATH="/home/$USER/.emacs.d/bin:$PATH"
 export PATH="/home/$USER/.local/bin:$PATH"
 export XDG_DATA_HOME="/home/$USER/.local/share/vim-lsp-settings/servers"
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -124,6 +126,23 @@ export XDG_DATA_HOME="/home/$USER/.local/share/vim-lsp-settings/servers"
 alias em="emacs -nw"
 alias mefi="sudo diskutil mount /dev/disk0s1"
 alias vi="vim"
+alias mem_check="valgrind -s"
+
+function prof_check() {
+    sh -c ${1};
+    if [[ -f gmon.out ]] 
+    then
+        echo ${1} " is profiling...";
+        gprof -b ${1} gmon.out;
+    else
+        echo "gmon.out not found!";
+    fi
+}
+
+function perf_check() {
+    perf record ${1};
+    perf report | more;
+}
 
 export NVM_DIR="/Users/caglar/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
