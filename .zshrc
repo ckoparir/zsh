@@ -102,18 +102,25 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # gtags library path globally
 export GTAGSLIBPATH=$HOME/.gtags/
 
-# Vulkan devlopment envoironment
-export VULKAN_SDK=$HOME/.vulkan/x86_64
-export PATH="$VULKAN_SDK/bin:$PATH"
-export LD_LIBRARY_PATH="$VULKAN_SDK/lib:${LD_LIBRARY_PATH:-}"
-export VK_LAYER_PATH="$VULKAN_SDK/etc/explicit_layer.d"
-export VK_INSTANCE_LAYERS="VK_LAYER_LUNARG_standard_validation"
-export PROJ_PATH="/home/$USER/Documents/PROJECTS"
+# Linux and system specific library path
+export LD_LIBRARY_PATH="/usr/lib/modules/5.9.14-arch1-1/build/include"
+export PATH="$LD_LIBRARY_PATH:$PATH"
+export Proj="/home/$USER/Documents/Projects"
 
 export PKG_CONFIG_PATH="/usr/lib64/pkgconfig"
 export PATH="/home/$USER/.emacs.d/bin:$PATH"
 export PATH="/home/$USER/.local/bin:$PATH"
 export XDG_DATA_HOME="/home/$USER/.local/share/vim-lsp-settings/servers"
+
+#Android and Java development envoironment 
+export ANDROID_SDK="$HOME/Android/Sdk"
+export ANDROID_NDK="$ANDROID_SDK/ndk/21.1.6352462"
+export ANDROID_HOME=$ANDROID_SDK
+export ANDROID_NDK_HOME=$ANDROID_NDK
+export JAVA_HOME="/usr/lib/jvm/default"
+export PATH="$ANDROID_NDK:$PATH"
+export PATH="$ANDROID_SDK/platform-tools:$PATH"
+export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
