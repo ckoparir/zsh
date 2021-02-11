@@ -87,17 +87,18 @@ export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-#if [[ -n $SSH_CONNECTION ]]; then
-#  export EDITOR='vim'
-#else
-#  export EDITOR='mvim'
-#fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
+
+# Terminal definition for i3wm
+export TERM=xterm
+export TERMINAL=$TERM
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
-
-# ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # gtags library path globally
 export GTAGSLIBPATH=$HOME/.gtags/
@@ -105,14 +106,14 @@ export GTAGSLIBPATH=$HOME/.gtags/
 # Linux and system specific library path
 export LD_LIBRARY_PATH="/usr/lib/modules/5.9.14-arch1-1/build/include"
 export PATH="$LD_LIBRARY_PATH:$PATH"
-export Proj="/home/$USER/Documents/Projects"
+export PRJ="/home/$USER/Documents/Projects"
 
 export PKG_CONFIG_PATH="/usr/lib64/pkgconfig"
 export PATH="/home/$USER/.emacs.d/bin:$PATH"
 export PATH="/home/$USER/.local/bin:$PATH"
 export XDG_DATA_HOME="/home/$USER/.local/share/vim-lsp-settings/servers"
 
-#Android and Java development envoironment 
+# Android and Java development envoironment 
 export ANDROID_SDK="$HOME/Android/Sdk"
 export ANDROID_NDK="$ANDROID_SDK/ndk/21.1.6352462"
 export ANDROID_HOME=$ANDROID_SDK
@@ -121,6 +122,12 @@ export JAVA_HOME="/usr/lib/jvm/default"
 export PATH="$ANDROID_NDK:$PATH"
 export PATH="$ANDROID_SDK/platform-tools:$PATH"
 export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
+
+# Global npm package installations (without sudo)
+export PATH="$HOME/.npm-global/bin:$PATH"
+
+# Add golang to the path
+export PATH="$HOME/.local/share/applications/go/bin:$PATH"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
