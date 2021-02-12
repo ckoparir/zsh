@@ -163,3 +163,4 @@ export NVM_DIR="/Users/caglar/.nvm"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
