@@ -72,8 +72,6 @@ plugins=(
 	virtualenv
 	pip
 	python
-	brew
-	osx
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 )
@@ -94,7 +92,7 @@ else
 fi
 
 # Terminal definition for i3wm
-export TERM=xterm
+export TERM=xterm-256color
 export TERMINAL=$TERM
 
 # Compilation flags
@@ -124,7 +122,12 @@ export PATH="$ANDROID_SDK/platform-tools:$PATH"
 export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
 
 # Global npm package installations (without sudo)
-export PATH="$HOME/.npm-global/bin:$PATH"
+NPM_PACKAGES="${HOME}/.npm-packages"
+NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+PATH="$NPM_PACKAGES/bin:$PATH"
+unset MANPATH
+MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+
 
 # Add golang to the path
 export PATH="$HOME/.local/share/applications/go/bin:$PATH"
@@ -137,9 +140,8 @@ export PATH="$HOME/.local/share/applications/go/bin:$PATH"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias em="emacs -nw"
-alias mefi="sudo diskutil mount /dev/disk0s1"
 alias vi="vim"
+alias em="emacs -nw"
 alias mem_check="valgrind -s"
 
 function prof_check() {
