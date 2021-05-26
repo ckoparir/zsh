@@ -85,11 +85,11 @@ export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
+# if [[ -n $SSH_CONNECTION ]]; then
+export EDITOR='vim'
+# else
+  # export EDITOR='mvim'
+# fi
 
 # Terminal definition for i3wm
 export TERM=xterm-256color
@@ -102,7 +102,8 @@ export ARCHFLAGS="-arch x86_64"
 export GTAGSLIBPATH=$HOME/.gtags/
 
 # Linux and system specific library path
-export LD_LIBRARY_PATH="/usr/lib/modules/5.9.14-arch1-1/build/include"
+export LD_LIBRARY_PATH="/usr/include/opencv4"
+export LD_LIBRARY_PATH="/usr/lib/modules/5.9.14-arch1-1/build/include:$LD_LIBRARY_PATH"
 export PATH="$LD_LIBRARY_PATH:$PATH"
 export PRJ="/home/$USER/Documents/Projects"
 
@@ -113,7 +114,7 @@ export XDG_DATA_HOME="/home/$USER/.local/share/vim-lsp-settings/servers"
 
 # Android and Java development envoironment 
 export ANDROID_SDK="$HOME/Android/Sdk"
-export ANDROID_NDK="$ANDROID_SDK/ndk/21.1.6352462"
+export ANDROID_NDK="$ANDROID_SDK/ndk/23.0.7123448"
 export ANDROID_HOME=$ANDROID_SDK
 export ANDROID_NDK_HOME=$ANDROID_NDK
 export JAVA_HOME="/usr/lib/jvm/default"
@@ -123,14 +124,23 @@ export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
 
 # Global npm package installations (without sudo)
 NPM_PACKAGES="${HOME}/.npm-packages"
-NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-PATH="$NPM_PACKAGES/bin:$PATH"
+NODE_PATH="${NPM_PACKAGES}/lib/node_modules:$NODE_PATH"
+PATH="${NPM_PACKAGES}/bin:$PATH"
 unset MANPATH
-MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+MANPATH="${NPM_PACKAGES}/share/man:$(manpath)"
 
 
 # Add golang to the path
 export PATH="$HOME/.local/share/applications/go/bin:$PATH"
+
+# Add AndroidStudio path
+export PATH="$HOME/.local/share/applications/android-studio/bin:$PATH"
+
+# Add OpenCV to the vairable for Android
+OPENCV_ANDROID="/opt/OpenCV-android-sdk/sdk/native/jni"
+
+# Add QT develepment on GNOME desktop
+XDG_CURRENT_DESKTOP=GNOME
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -160,7 +170,7 @@ function perf_check() {
     perf report | more;
 }
 
-export NVM_DIR="/Users/caglar/.nvm"
+export NVM_DIR="/home/caglar/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 
