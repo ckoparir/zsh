@@ -102,12 +102,10 @@ export ARCHFLAGS="-arch x86_64"
 export GTAGSLIBPATH=$HOME/.gtags/
 
 # Linux and system specific library path
-export C_INCLUDE_PATH="/usr/include/SDL2:/usr/include/glib-2.0:/usr/lib64/glib-2.0/include"
-export LD_LIBRARY_PATH="/usr/lib/modules/5.9.14-arch1-1/build/include"
+export LD_LIBRARY_PATH="/usr/include/opencv4"
+export LD_LIBRARY_PATH="/usr/lib/modules/5.9.14-arch1-1/build/include:$LD_LIBRARY_PATH"
 export PATH="$LD_LIBRARY_PATH:$PATH"
-export PATH="$C_INCLUDE_PATH:$PATH"
 export PRJ="/home/$USER/Documents/Projects"
-export C="/home/$USER/Documents/Projects/C"
 
 export PKG_CONFIG_PATH="/usr/lib64/pkgconfig"
 export PATH="/home/$USER/.emacs.d/bin:$PATH"
@@ -184,5 +182,8 @@ export NVM_DIR="/home/caglar/.nvm"
 PATH="/home/caglar/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/caglar/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/caglar/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/caglar/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/caglar/perl5"; export PERL_MM_OPT;
+PERL_MB_OPT="--install_base \"/home/caglar/perl5\""; export PERL_MB_OPT;
+PATH="/home/caglar/perl5/bin${PATH:+:${PATH}}"; export PATH;
+kPERL_OPT
+
