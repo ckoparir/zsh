@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:/usr/include/**:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/usr/include/**:/usr/bin:/usr/sbin
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.zsh
 export EDITOR="vim"
@@ -102,28 +102,33 @@ export ARCHFLAGS="-arch x86_64"
 export GTAGSLIBPATH=$HOME/.gtags/
 
 # Linux and system specific library path
-export C_INCLUDE_PATH="/usr/include/SDL2:/usr/include/glib-2.0:/usr/lib64/glib-2.0/include"
+export C_INCLUDE_PATH="/usr/include/SDL2"
 export LD_LIBRARY_PATH="/usr/lib/modules/5.9.14-arch1-1/build/include"
-export PATH="$LD_LIBRARY_PATH:$PATH"
-export PATH="$C_INCLUDE_PATH:$PATH"
+export GLIB_INC="/usr/include/glib-2.0:/usr/lib64/glib-2.0/include:/usr/include/glib-2.0/glib"
+export GLIB_LIB="/usr/lib64/glib-2.0/include:/usr/lib64"
+PATH="$GLIB_INC:$GLIB_LIB:$PATH"
+PATH="$LD_LIBRARY_PATH:$PATH"
+PATH="$C_INCLUDE_PATH:$PATH"
 export PRJ="/home/$USER/Documents/Projects"
 export C="/home/$USER/Documents/Projects/C"
 
 export PKG_CONFIG_PATH="/usr/lib64/pkgconfig"
-export PATH="/home/$USER/.emacs.d/bin:$PATH"
-export PATH="/home/$USER/.local/bin:$PATH"
+PATH="/home/$USER/.emacs.d/bin:$PATH"
+PATH="/home/$USER/.local/bin:$PATH"
 export XDG_DATA_HOME="/home/$USER/.local/share/vim-lsp-settings/servers"
 
 # Android and Java development envoironment 
-export ANDROID_SDK="$HOME/Android/Sdk"
-export ANDROID_NDK="$ANDROID_SDK/ndk/23.0.7123448"
-export ANDROID_HOME=$ANDROID_SDK
+export ANDROID_PATH="$HOME/Android"
+export ANDROID_HOME="$ANDROID_PATH/Sdk"
+export ANDROID_SDK="$ANDROID_HOME" 
+export ANDROID_NDK="$ANDROID_SDK/ndk/23.1.7779620"
 export ANDROID_NDK_HOME=$ANDROID_NDK
 export JAVA_HOME="/usr/lib/jvm/default"
-export PATH="$ANDROID_NDK:$JAVA_HOME/bin:$PATH"
-export PATH="$ANDROID_SDK/platform-tools:$PATH"
-export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
-export PATH="/var/lib/snapd/snap/bin:$PATH"
+PATH="$ANDROID_NDK:$JAVA_HOME/bin:$PATH"
+PATH="$ANDROID_SDK/platform-tools:$PATH"
+PATH="$ANDROID_PATH/bin:$PATH"
+PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
+PATH="/var/lib/snapd/snap/bin:$PATH"
 
 # Global npm package installations (without sudo)
 NPM_PACKAGES="${HOME}/.npm-packages"
@@ -132,12 +137,15 @@ PATH="${NPM_PACKAGES}/bin:$PATH"
 unset MANPATH
 MANPATH="${NPM_PACKAGES}/share/man:$(manpath)"
 
+# global C include path definitions
+export CPATH="$GLIB_INC"
+export LIBRARY_PATH="$GLIB_LIB"
 
 # Add golang to the path
-export PATH="$HOME/.local/share/applications/go/bin:$PATH"
+PATH="$HOME/.local/share/applications/go/bin:$PATH"
 
 # Add AndroidStudio path
-export PATH="$HOME/.local/share/applications/android-studio/bin:$PATH"
+PATH="$HOME/.local/share/applications/android-studio/bin:$PATH"
 
 # Add OpenCV to the vairable for Android
 OPENCV_ANDROID="/opt/OpenCV-android-sdk/sdk/native/jni"
